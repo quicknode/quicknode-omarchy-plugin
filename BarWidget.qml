@@ -93,10 +93,12 @@ BarWidget {
       anchors.centerIn: parent
       spacing: Style.spaceReal(5)
 
+      // Sized to the bar's icon font rather than its icon canvas so the
+      // logo reads as an inline glyph next to the number.
       Item {
         anchors.verticalCenter: parent.verticalCenter
-        width: Style.bar.iconCanvas
-        height: Style.bar.iconCanvas
+        width: Style.bar.iconFont
+        height: Style.bar.iconFont
 
         // Hidden layer the effect samples; the effect paints it in the
         // bar's foreground (or urgent) color.
@@ -104,8 +106,8 @@ BarWidget {
           id: logo
           anchors.fill: parent
           source: Qt.resolvedUrl("assets/quicknode.svg")
-          sourceSize.width: Style.bar.iconCanvas * 2
-          sourceSize.height: Style.bar.iconCanvas * 2
+          sourceSize.width: Style.bar.iconFont * 2
+          sourceSize.height: Style.bar.iconFont * 2
           fillMode: Image.PreserveAspectFit
           smooth: true
           visible: false

@@ -345,21 +345,21 @@ Panel {
               anchors.left: parent.left
               anchors.leftMargin: Style.space(16)
               anchors.verticalCenter: parent.verticalCenter
-              spacing: Style.space(12)
+              spacing: Style.space(18)
 
               // QuickNode symbol, painted in the panel foreground. Sized to
               // match the hero percentage's cap height.
               Item {
                 anchors.verticalCenter: parent.verticalCenter
-                width: Style.space(40)
-                height: Style.space(40)
+                width: Style.space(32)
+                height: Style.space(32)
 
                 Image {
                   id: heroLogo
                   anchors.fill: parent
                   source: Qt.resolvedUrl("assets/quicknode.svg")
-                  sourceSize.width: Style.space(40) * 2
-                  sourceSize.height: Style.space(40) * 2
+                  sourceSize.width: Style.space(32) * 2
+                  sourceSize.height: Style.space(32) * 2
                   fillMode: Image.PreserveAspectFit
                   smooth: true
                   visible: false
@@ -379,7 +379,9 @@ Panel {
                 text: root.percent === null ? "—" : root.percent + "%"
                 color: root.overLimit || root.nearLimit ? Color.urgent : root.foreground
                 font.family: root.fontFamily
-                font.pixelSize: 44
+                // Hero read-out; deliberately above the Style.font.* scale
+                // but kept close to the stats column's height.
+                font.pixelSize: 32
                 font.bold: true
               }
             }

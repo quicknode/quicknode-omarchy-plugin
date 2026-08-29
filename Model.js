@@ -214,8 +214,9 @@ function usagePercent(usage) {
   return pct < 10 ? Math.round(pct * 10) / 10 : Math.round(pct)
 }
 
+// Bar text is the bare number; the pill's logo already says what it is.
 function barLabel(percent) {
-  return percent === null || percent === undefined ? "" : percent + "%"
+  return percent === null || percent === undefined ? "" : String(percent)
 }
 
 // Compact credit counts for the stats row: 1234 → "1.2K", 56000000 → "56M".
