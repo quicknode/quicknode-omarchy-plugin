@@ -79,7 +79,6 @@ Panel {
   readonly property int refreshMinutes: Math.max(1, parseInt(setting("refreshMinutes", 15), 10) || 15)
 
   readonly property var percent: Model.usagePercent(usage)
-  readonly property string label: root.hasKey ? Model.barLabel(percent) : ""
   readonly property bool overLimit: !!usage && ((usage.overages !== null && usage.overages > 0) || (percent !== null && percent >= 100))
   readonly property bool nearLimit: percent !== null && percent >= 90
 
@@ -334,7 +333,7 @@ Panel {
           width: contentScroll.width
           spacing: Style.space(14)
 
-          // ---- Hero row: big usage percentage left, stats stacked right.
+          // ---- Hero row: QuickNode symbol left, stats stacked right.
           Item {
             visible: root.hasKey
             width: parent.width
@@ -374,16 +373,6 @@ Panel {
                 }
               }
 
-              Text {
-                anchors.verticalCenter: parent.verticalCenter
-                text: root.percent === null ? "—" : root.percent + "%"
-                color: root.overLimit || root.nearLimit ? Color.urgent : root.foreground
-                font.family: root.fontFamily
-                // Hero read-out; deliberately above the Style.font.* scale
-                // but kept close to the stats column's height.
-                font.pixelSize: 32
-                font.bold: true
-              }
             }
 
             Row {

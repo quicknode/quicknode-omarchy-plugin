@@ -4,8 +4,8 @@ A bar widget for the [Omarchy](https://omarchy.org) shell that shows your
 [QuickNode](https://www.quicknode.com) API credit usage for the current
 billing period, with a popup listing your endpoints and their status.
 
-- The bar pill shows the percentage of your plan's credits used; it turns
-  urgent when you are near (≥90%) or over the limit.
+- The bar pill is the QuickNode symbol; it turns urgent when you are near
+  (≥90%) or over your plan's credit limit.
 - The popup shows credits used / limit, days until the billing period
   resets, a usage progress bar, and overage credits when applicable.
 - Below that, every endpoint with its chain logo, chain and network, a

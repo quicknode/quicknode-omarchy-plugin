@@ -3,9 +3,9 @@ import QtQuick.Effects
 import qs.Commons
 import qs.Ui
 
-// QuickNode pill for the bar: the QuickNode symbol plus the billing
-// period's credit usage percentage, with the detail popup hosted in
-// Panel.qml.
+// QuickNode pill for the bar: the QuickNode symbol, tinted urgent when the
+// billing period's credits are near or over the limit, with the detail
+// popup hosted in Panel.qml.
 //
 // Left click toggles the panel, middle click refreshes, right click opens
 // the panel straight into API key editing.
@@ -52,7 +52,6 @@ BarWidget {
     if (panelLoader.item) panelLoader.item.closeForPopoutSwitch()
   }
 
-  readonly property string percentText: panelLoader.item ? panelLoader.item.label : ""
   readonly property bool overLimit: panelLoader.item ? panelLoader.item.overLimit === true : false
 
   implicitWidth: button.implicitWidth
@@ -79,63 +78,41 @@ BarWidget {
     active: root.overLimit
     tooltipText: "QuickNode"
 
-    // The button's own label is text-only; the logo + percentage row below
-    // replaces it, so the button just sizes itself around that row.
+    // The button's own label is text-only; the logo below replaces it and
+    // the button sizes itself to the bar's standard icon slot.
     labelVisible: false
     hasVisualContent: true
-    fixedWidth: root.vertical ? -1 : content.implicitWidth + button.scaledHorizontalMargin * 2
-    fixedHeight: root.vertical ? content.implicitHeight + button.scaledVerticalPadding * 2 : -1
+    fixedWidth: root.vertical ? -1 : Style.bar.iconSlot
+    fixedHeight: root.vertical ? Style.bar.iconSlot : -1
 
     readonly property color contentColor: button.active && button.useActiveColor ? button.activeColor : button.foreground
 
-    Row {
+    // Sized to the bar's icon font so it matches the neighbouring glyphs.
+    Item {
       id: content
       anchors.centerIn: parent
-      spacing: Style.spaceReal(5)
+      width: Style.bar.iconFont
+      height: Style.bar.iconFont
 
-      // Sized to the bar's icon font rather than its icon canvas so the
-      // logo reads as an inline glyph next to the number.
-      Item {
-        anchors.verticalCenter: parent.verticalCenter
-        width: Style.bar.iconFont
-        height: Style.bar.iconFont
-
-        // Hidden layer the effect samples; the effect paints it in the
-        // bar's foreground (or urgent) color.
-        Image {
-          id: logo
-          anchors.fill: parent
-          source: Qt.resolvedUrl("assets/quicknode.svg")
-          sourceSize.width: Style.bar.iconFont * 2
-          sourceSize.height: Style.bar.iconFont * 2
-          fillMode: Image.PreserveAspectFit
-          smooth: true
-          visible: false
-          layer.enabled: true
-        }
-
-        MultiEffect {
-          anchors.fill: logo
-          source: logo
-          colorization: 1.0
-          colorizationColor: button.contentColor
-        }
+      // Hidden layer the effect samples; the effect paints it in the
+      // bar's foreground (or urgent) color.
+      Image {
+        id: logo
+        anchors.fill: parent
+        source: Qt.resolvedUrl("assets/quicknode.svg")
+        sourceSize.width: Style.bar.iconFont * 2
+        sourceSize.height: Style.bar.iconFont * 2
+        fillMode: Image.PreserveAspectFit
+        smooth: true
+        visible: false
+        layer.enabled: true
       }
 
-      // Vertical bars only have room for the logo.
-      Text {
-        visible: !root.vertical && root.percentText !== ""
-        anchors.verticalCenter: parent.verticalCenter
-        text: root.percentText
-        color: button.contentColor
-        font.family: button.fontFamily
-        font.pixelSize: button.fontSize
-        renderType: Text.NativeRendering
-
-        Behavior on color {
-          enabled: !root.bar || root.bar.foregroundAnimationEnabled
-          ColorAnimation { duration: 160 }
-        }
+      MultiEffect {
+        anchors.fill: logo
+        source: logo
+        colorization: 1.0
+        colorizationColor: button.contentColor
       }
     }
 
