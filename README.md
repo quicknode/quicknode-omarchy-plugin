@@ -23,6 +23,10 @@ Data comes from the [QuickNode Admin API](https://www.quicknode.com/docs/quickno
 (`/v0/usage/rpc`, `/v0/usage/rpc/by-chain`, and `/v0/endpoints`), which
 requires a paid QuickNode plan. Copying uses `wl-copy`.
 
+The QuickNode symbol in the bar and popup is `assets/quicknode.svg`
+(QuickNode's trademark, from their brand assets), recolored at runtime to
+the theme foreground with `MultiEffect`.
+
 ## Install
 
 ```bash

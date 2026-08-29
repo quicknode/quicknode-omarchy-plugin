@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Effects
 import Quickshell
 import Quickshell.Io
 import qs.Commons
@@ -346,14 +347,31 @@ Panel {
               anchors.verticalCenter: parent.verticalCenter
               spacing: Style.space(12)
 
-              Text {
+              // QuickNode symbol, painted in the panel foreground. Sized to
+              // match the hero percentage's cap height.
+              Item {
                 anchors.verticalCenter: parent.verticalCenter
-                text: "󰆧"
-                color: root.foreground
-                font.family: root.fontFamily
-                // Decorative brand glyph; intentionally larger than the
-                // Style.font.* scale, matching the weather hero.
-                font.pixelSize: 44
+                width: Style.space(40)
+                height: Style.space(40)
+
+                Image {
+                  id: heroLogo
+                  anchors.fill: parent
+                  source: Qt.resolvedUrl("assets/quicknode.svg")
+                  sourceSize.width: Style.space(40) * 2
+                  sourceSize.height: Style.space(40) * 2
+                  fillMode: Image.PreserveAspectFit
+                  smooth: true
+                  visible: false
+                  layer.enabled: true
+                }
+
+                MultiEffect {
+                  anchors.fill: heroLogo
+                  source: heroLogo
+                  colorization: 1.0
+                  colorizationColor: root.foreground
+                }
               }
 
               Text {
