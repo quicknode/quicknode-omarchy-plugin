@@ -1,0 +1,4 @@
+# Never commit a shell.json or local config that could carry the API key
+shell.json
+*.local.json
+.env

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "sebs.quicknode",
+  "name": "QuickNode",
+  "version": "1.0.0",
+  "author": "Sebastien Barrau",
+  "description": "QuickNode API credit usage and endpoint status from the Admin API",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "QuickNode",
+    "description": "QuickNode API credit usage and endpoint status",
+    "category": "Info",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshMinutes": 15
+    }
+  }
+}
