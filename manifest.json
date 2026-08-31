@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "quicknode",
+  "id": "io.github.sbarrau-qn.quicknode",
   "name": "QuickNode",
   "version": "1.0.0",
   "author": "Sebastien Barrau",

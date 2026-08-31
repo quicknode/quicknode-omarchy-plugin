@@ -11,8 +11,8 @@ import "Model.js" as Model
 // addresses, and inline Admin API key management.
 Panel {
   id: root
-  moduleName: "quicknode"
-  ipcTarget: "quicknode"
+  moduleName: "io.github.sbarrau-qn.quicknode"
+  ipcTarget: "io.github.sbarrau-qn.quicknode"
   manageIpc: false
 
   property var anchorItem: null
