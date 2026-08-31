@@ -11,8 +11,8 @@ import "Model.js" as Model
 // addresses, and inline Admin API key management.
 Panel {
   id: root
-  moduleName: "sebs.quicknode"
-  ipcTarget: "sebs.quicknode"
+  moduleName: "quicknode"
+  ipcTarget: "quicknode"
   manageIpc: false
 
   property var anchorItem: null

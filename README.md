@@ -35,8 +35,8 @@ the theme foreground with `MultiEffect`.
 omarchy plugin add https://github.com/sbarrau-qn/quicknode-omarchy-plugin.git --enable
 ```
 
-Or by hand: copy this directory to `~/.config/omarchy/plugins/sebs.quicknode/`,
-then run `omarchy-shell shell rescanPlugins` and `omarchy plugin enable sebs.quicknode`.
+Or by hand: copy this directory to `~/.config/omarchy/plugins/quicknode/`,
+then run `omarchy-shell shell rescanPlugins` and `omarchy plugin enable quicknode`.
 
 ## Setup
 
@@ -52,7 +52,7 @@ process environment rather than command-line arguments.
 Settings live inline on the widget's entry in `~/.config/omarchy/shell.json`:
 
 ```json
-{ "id": "sebs.quicknode", "apiKey": "QN_...", "refreshMinutes": 15 }
+{ "id": "quicknode", "apiKey": "QN_...", "refreshMinutes": 15 }
 ```
 
 | Key | Default | Meaning |
@@ -63,19 +63,19 @@ Settings live inline on the widget's entry in `~/.config/omarchy/shell.json`:
 ## Uninstall
 
 ```bash
-omarchy plugin remove sebs.quicknode
+omarchy plugin remove quicknode
 ```
 
 This disables the widget and deletes the plugin folder, but it does not
 touch `~/.config/omarchy/shell.json` — the widget's entry there, including
-the stored API key, stays behind. Delete the `"id": "sebs.quicknode"`
+the stored API key, stays behind. Delete the `"id": "quicknode"`
 object from the bar layout by hand, and revoke the key in the
 [QuickNode dashboard](https://dashboard.quicknode.com/api-keys) if you no
 longer need it.
 
 ## Developing
 
-Files under `~/.config/omarchy/plugins/sebs.quicknode/` are watched, but in
+Files under `~/.config/omarchy/plugins/quicknode/` are watched, but in
 practice edits to `Panel.qml` only took effect after `omarchy restart shell`
 — the reload re-registers the widget without re-instantiating the nested
 panel. Restart after each change to be sure you're looking at current code.
@@ -83,7 +83,7 @@ panel. Restart after each change to be sure you're looking at current code.
 ## IPC
 
 ```bash
-omarchy-shell sebs.quicknode toggle    # open/close the popup
-omarchy-shell sebs.quicknode edit      # open with the key editor focused
-omarchy-shell sebs.quicknode refresh   # refetch usage and endpoints
+omarchy-shell quicknode toggle    # open/close the popup
+omarchy-shell quicknode edit      # open with the key editor focused
+omarchy-shell quicknode refresh   # refetch usage and endpoints
 ```
