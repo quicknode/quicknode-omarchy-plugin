@@ -4,6 +4,7 @@
   "name": "QuickNode",
   "version": "1.0.0",
   "author": "Sebastien Barrau",
+  "license": "MIT",
   "description": "QuickNode API credit usage and endpoint status from the Admin API",
   "kinds": [
     "bar-widget"
