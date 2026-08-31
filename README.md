@@ -4,6 +4,8 @@ A bar widget for the [Omarchy](https://omarchy.org) shell that shows your
 [QuickNode](https://www.quicknode.com) API credit usage for the current
 billing period, with a popup listing your endpoints and their status.
 
+![The QuickNode popup under the bar pill](assets/screenshot.png)
+
 - The bar pill is the QuickNode symbol; it turns urgent when you are near
   (≥90%) or over your plan's credit limit.
 - The popup shows credits used / limit, days until the billing period
@@ -38,7 +40,8 @@ then run `omarchy-shell shell rescanPlugins` and `omarchy plugin enable sebs.qui
 
 ## Setup
 
-Create an Admin API key in the [QuickNode dashboard](https://dashboard.quicknode.com/api-keys),
+Create a read-only Admin API key in the [QuickNode dashboard](https://dashboard.quicknode.com/api-keys)
+(the widget only ever reads usage and endpoints, so it doesn't need write access),
 click the widget, and paste the key. The key is stored inline on the
 widget's entry in `~/.config/omarchy/shell.json` (plaintext, like all
 widget settings) and is sent to `api.quicknode.com` only, via the child
