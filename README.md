@@ -32,7 +32,7 @@ the theme foreground with `MultiEffect`.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/sebastienbarrau/qn-plugin.git --enable
+omarchy plugin add https://github.com/sbarrau-qn/quicknode-omarchy-plugin.git --enable
 ```
 
 Or by hand: copy this directory to `~/.config/omarchy/plugins/sebs.quicknode/`,
