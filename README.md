@@ -21,7 +21,7 @@ billing period, with a popup listing your endpoints and their status.
 - Left click toggles the popup, middle click refreshes, right click opens
   the popup straight into API key editing.
 
-Data comes from the [QuickNode Admin API](https://www.quicknode.com/docs/quicknode-api)
+Data comes from the [QuickNode Admin API](https://www.quicknode.com/docs/admin-api)
 (`/v0/usage/rpc`, `/v0/usage/rpc/by-chain`, and `/v0/endpoints`), which
 requires a paid QuickNode plan. Copying uses `wl-copy`.
 
