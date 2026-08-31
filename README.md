@@ -60,6 +60,19 @@ Settings live inline on the widget's entry in `~/.config/omarchy/shell.json`:
 | `apiKey` | — | QuickNode Admin API key |
 | `refreshMinutes` | `15` | How often to poll the Admin API |
 
+## Uninstall
+
+```bash
+omarchy plugin remove sebs.quicknode
+```
+
+This disables the widget and deletes the plugin folder, but it does not
+touch `~/.config/omarchy/shell.json` — the widget's entry there, including
+the stored API key, stays behind. Delete the `"id": "sebs.quicknode"`
+object from the bar layout by hand, and revoke the key in the
+[QuickNode dashboard](https://dashboard.quicknode.com/api-keys) if you no
+longer need it.
+
 ## Developing
 
 Files under `~/.config/omarchy/plugins/sebs.quicknode/` are watched, but in
