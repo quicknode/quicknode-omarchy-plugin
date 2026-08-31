@@ -32,11 +32,11 @@ the theme foreground with `MultiEffect`.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/sbarrau-qn/quicknode-omarchy-plugin.git --enable
+omarchy plugin add https://github.com/quicknode/quicknode-omarchy-plugin.git --enable
 ```
 
-Or by hand: copy this directory to `~/.config/omarchy/plugins/io.github.sbarrau-qn.quicknode/`,
-then run `omarchy-shell shell rescanPlugins` and `omarchy plugin enable io.github.sbarrau-qn.quicknode`.
+Or by hand: copy this directory to `~/.config/omarchy/plugins/io.github.quicknode.quicknode/`,
+then run `omarchy-shell shell rescanPlugins` and `omarchy plugin enable io.github.quicknode.quicknode`.
 
 ## Setup
 
@@ -52,7 +52,7 @@ process environment rather than command-line arguments.
 Settings live inline on the widget's entry in `~/.config/omarchy/shell.json`:
 
 ```json
-{ "id": "io.github.sbarrau-qn.quicknode", "apiKey": "QN_...", "refreshMinutes": 15 }
+{ "id": "io.github.quicknode.quicknode", "apiKey": "QN_...", "refreshMinutes": 15 }
 ```
 
 | Key | Default | Meaning |
@@ -63,19 +63,19 @@ Settings live inline on the widget's entry in `~/.config/omarchy/shell.json`:
 ## Uninstall
 
 ```bash
-omarchy plugin remove io.github.sbarrau-qn.quicknode
+omarchy plugin remove io.github.quicknode.quicknode
 ```
 
 This disables the widget and deletes the plugin folder, but it does not
 touch `~/.config/omarchy/shell.json` — the widget's entry there, including
-the stored API key, stays behind. Delete the `"id": "io.github.sbarrau-qn.quicknode"`
+the stored API key, stays behind. Delete the `"id": "io.github.quicknode.quicknode"`
 object from the bar layout by hand, and revoke the key in the
 [QuickNode dashboard](https://dashboard.quicknode.com/api-keys) if you no
 longer need it.
 
 ## Developing
 
-Files under `~/.config/omarchy/plugins/io.github.sbarrau-qn.quicknode/` are watched, but in
+Files under `~/.config/omarchy/plugins/io.github.quicknode.quicknode/` are watched, but in
 practice edits to `Panel.qml` only took effect after `omarchy restart shell`
 — the reload re-registers the widget without re-instantiating the nested
 panel. Restart after each change to be sure you're looking at current code.
@@ -83,7 +83,7 @@ panel. Restart after each change to be sure you're looking at current code.
 ## IPC
 
 ```bash
-omarchy-shell io.github.sbarrau-qn.quicknode toggle    # open/close the popup
-omarchy-shell io.github.sbarrau-qn.quicknode edit      # open with the key editor focused
-omarchy-shell io.github.sbarrau-qn.quicknode refresh   # refetch usage and endpoints
+omarchy-shell io.github.quicknode.quicknode toggle    # open/close the popup
+omarchy-shell io.github.quicknode.quicknode edit      # open with the key editor focused
+omarchy-shell io.github.quicknode.quicknode refresh   # refetch usage and endpoints
 ```

@@ -11,7 +11,7 @@ import qs.Ui
 // the panel straight into API key editing.
 BarWidget {
   id: root
-  moduleName: "io.github.sbarrau-qn.quicknode"
+  moduleName: "io.github.quicknode.quicknode"
 
   function injectPanel() {
     var target = panelLoader.item
